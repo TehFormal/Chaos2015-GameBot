@@ -3,11 +3,9 @@
 class Robot: public IterativeRobot
 {
 private:
-	LiveWindow *lw;
-
 	void RobotInit()
 	{
-		lw = LiveWindow::GetInstance();
+
 	}
 
 	void AutonomousInit()
@@ -32,7 +30,7 @@ private:
 
 	void TestPeriodic()
 	{
-		lw->Run();
+	
 	}
 };
 
