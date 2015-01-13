@@ -1,4 +1,6 @@
+#include <cstdint>
 #include "WPILib.h"
+#include "DevBot.h"
 
 class DevBot: public IterativeRobot
 {
