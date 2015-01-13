@@ -11,12 +11,11 @@ public:
 	DevBot():
 
 	// Various Iterators
-	void RobotInit();
-	void AutonomousInit();
-	void AutonomousPeriodic();
+	//void RobotInit();
+	//void AutonomousInit();
+	//void AutonomousPeriodic();
 	void TeleopInit();
 	void TeleopPeriodic();
-	void TestPeriodic();
 };
 
 DevBot::DevBot():
