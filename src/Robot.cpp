@@ -23,7 +23,9 @@ DevBot::DevBot():
 	robotDrive(frontLeft, rearLeft, frontRight, rearRight),	// Must be initialized in the proper order
 	stick(joystickChannel)
 {
-	
+	robotDrive.SetExpiration(0.1);
+	robotDrive.SetInvertedMotor(RobotDrive::kFrontLeftMotor, true);
+	robotDrive.SetInvertedMotor(RobotDrive::kRearLeftMotor, true);
 }
 	
 
