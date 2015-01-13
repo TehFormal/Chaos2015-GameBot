@@ -10,7 +10,7 @@ private:
 	
 public:
 	// Constructor Method
-	DevBot():
+	DevBot();
 
 	// Various Iterators
 	//void RobotInit();
