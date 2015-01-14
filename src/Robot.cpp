@@ -29,11 +29,11 @@ DevBot::DevBot():
 	robotDrive.SetInvertedMotor(RobotDrive::kRearLeftMotor, true);
 }
 
-DevBot::TeleopInit() {
+void DevBot::TeleopInit() {
 	robotDrive.SetSafetyEnabled(false);	// Necessary for proper motor functioning during Teleop
 }
 
-DevBot::TeleopPeriodic() {
+void DevBot::TeleopPeriodic() {
 	robotDrive.MecanumDrive_Cartesian(
 		stick.GetX(),			// Lateral movement
 		stick.GetY(),			// Forward movement
@@ -43,4 +43,4 @@ DevBot::TeleopPeriodic() {
 	Wait(0.005); // Give the CPU some time to breathe so it doesn't explode.
 }
 
-START_ROBOT_CLASS(Robot);
+START_ROBOT_CLASS(DevBot);
