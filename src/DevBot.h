@@ -1,6 +1,9 @@
 #ifndef SRC_DEVBOT_H_
 #define SRC_DEVBOT_H_
 
+#include <cstdint>
+#include "WPILib.h"
+
 // Wheel Motor IDs
 #define	frontLeft	1
 #define	rearLeft	2
