@@ -16,6 +16,7 @@ class DevBot: public IterativeRobot
 private:	
 	RobotDrive robotDrive;	// robot drive system
 	Joystick stick;		// only joystick
+	Gyro gyro;
 	
 public:
 	// Constructor Method
@@ -27,6 +28,9 @@ public:
 	//void AutonomousPeriodic();
 	void TeleopInit();
 	void TeleopPeriodic();
+	
+	// Various Helper Functions
+	void Forward( float Speed, float Time );
 };
 
 #endif /* SRC_DEVBOT_H_ */
