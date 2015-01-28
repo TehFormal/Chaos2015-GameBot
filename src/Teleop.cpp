@@ -13,9 +13,12 @@ void DevBot::TeleopPeriodic() {
 		-0.5*stick.GetRawAxis(4)		// Rotational movement
 	);
 
+	// Solenoid A
 	solenoid0.Set( stick.GetRawButton(1) );
-	solenoid1.Set( stick.GetRawButton(2) );
-	solenoid7.Set( stick.GetRawButton(3) );
+	solenoid7.Set( stick.GetRawButton(2) );
+
+	// Solenoid B
+	solenoid1.Set( stick.GetRawButton(3) );
 	solenoid6.Set( stick.GetRawButton(4) );
 
 	Wait(0.005); // Give the CPU some time to breathe so it doesn't explode.
