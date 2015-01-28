@@ -23,6 +23,8 @@ DevBot::DevBot():
 	robotDrive.SetInvertedMotor(RobotDrive::kRearLeftMotor, true);
 
 	compressor.Start(); // Starts the compressor
+	
+	stopped = false;
 }
 
 START_ROBOT_CLASS(DevBot);
