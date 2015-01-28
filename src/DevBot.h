@@ -32,6 +32,8 @@ private:
 	Solenoid solenoid6;
 	Solenoid solenoid7;
 
+	// Flag variables have to go last, because we don't instantiate them in the constructor.
+	bool stopped;	// Flag for arm code
 public:
 	// Constructor Method
 	DevBot();
