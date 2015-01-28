@@ -1,2 +1,2 @@
 # Chaos2015-DevBot
-Code base for 2015 development robot.
+Codebase for FRC Team Chaos's 2015 development robot for "Recycle Rush."
