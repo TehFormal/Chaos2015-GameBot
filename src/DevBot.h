@@ -18,7 +18,7 @@ class DevBot: public IterativeRobot
 {
 private:	
 	RobotDrive robotDrive;	// robot drive system
-	Joystick stick;		// only joystick
+	Joystick driver;		// only joystick
 	Gyro gyro;
 	Compressor compressor;
 	

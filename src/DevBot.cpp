@@ -4,7 +4,7 @@
 
 DevBot::DevBot():
 	robotDrive(frontLeft, rearLeft, frontRight, rearRight),	// Must be initialized in the proper order
-	stick(joystickChannel),
+	driver(joystickChannel),
 	gyro( 0 ),
 	compressor(),
 
