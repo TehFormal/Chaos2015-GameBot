@@ -5,10 +5,10 @@
 #include "WPILib.h"
 
 // Wheel Motor IDs
-#define	frontLeft	0
+#define	rearRight	0
 #define	frontRight	1
-#define	rearLeft	2
-#define	rearRight	3
+#define	frontLeft	2
+#define	rearLeft	3
 
 // Joystick IDs
 #define	joystickChannel	0
