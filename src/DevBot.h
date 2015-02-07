@@ -10,17 +10,16 @@
 #define	frontLeft	2
 #define	rearLeft	3
 
-// Joystick IDs
-#define	joystickChannel	0
-
 // Main Robot Class
 class DevBot: public IterativeRobot
 {
 private:	
 	RobotDrive robotDrive;	// robot drive system
-	Joystick driver;		// only joystick
+	Joystick driver;
+	Joystick copilot;
 	Gyro gyro;
 	Compressor compressor;
+	CANTalon forkliftMotor;
 public:
 	// Constructor Method
 	DevBot();
