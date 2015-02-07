@@ -21,17 +21,6 @@ private:
 	Joystick driver;		// only joystick
 	Gyro gyro;
 	Compressor compressor;
-	
-	// Solenoids
-	Solenoid solenoid0;
-	Solenoid solenoid1;
-	Solenoid solenoid2;
-	Solenoid solenoid3;
-	Solenoid solenoid4;
-	Solenoid solenoid5;
-	Solenoid solenoid6;
-	Solenoid solenoid7;
-
 public:
 	// Constructor Method
 	DevBot();
