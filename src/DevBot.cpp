@@ -4,8 +4,8 @@
 
 DevBot::DevBot():
 	robotDrive(frontLeft, rearLeft, frontRight, rearRight),	// Must be initialized in the proper order
-	driver(1),
-	copilot(2),
+	driver(0),
+	copilot(1),
 	gyro( 0 ),
 	compressor(),
 	forkliftMotor(5)
