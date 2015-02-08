@@ -19,6 +19,7 @@ private:
 	Joystick copilot;
 	Gyro gyro;
 	Compressor compressor;
+	CANTalon forkliftMotor;
 public:
 	// Constructor Method
 	DevBot();
