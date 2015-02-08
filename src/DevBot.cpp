@@ -8,7 +8,8 @@ DevBot::DevBot():
 	copilot(1),
 	gyro( 0 ),
 	compressor(),
-	forkliftMotor(5)
+	forkliftMotor(5),
+	grabber( 1, 0, 7 ) // Channels 0 and 7 on PCM id 1
 {
 	robotDrive.SetExpiration(0.1);
 	robotDrive.SetInvertedMotor(RobotDrive::kFrontLeftMotor, true);
