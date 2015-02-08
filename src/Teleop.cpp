@@ -13,5 +13,7 @@ void DevBot::TeleopPeriodic() {
 		-0.5*driver.GetRawAxis(4)		// Rotational movement
 	);
 
+	forkliftMotor.Set( copilot.GetRawAxis(1) );
+
 	Wait(0.005); // Give the CPU some time to breathe so it doesn't explode.
 }
