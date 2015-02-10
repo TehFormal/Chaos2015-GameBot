@@ -13,7 +13,13 @@ void DevBot::TeleopPeriodic() {
 		-0.5*driver.GetRawAxis(4)		// Rotational movement
 	);
 
-	forkliftMotor.Set(copilot.GetRawAxis(1));
+	forkliftMotor.Set( copilot.GetRawAxis(1) );
+
+	if( copilot.GetRawButton(5) ) {
+		grabber.Set( DoubleSolenoid::kForward );
+	} else if( copilot.GetRawButton(6) ) {
+		grabber.Set( DoubleSolenoid::kReverse );
+	}
 
 	Wait(0.005); // Give the CPU some time to breathe so it doesn't explode.
 }

@@ -20,6 +20,8 @@ private:
 	Gyro gyro;
 	Compressor compressor;
 	CANTalon forkliftMotor;
+
+	DoubleSolenoid grabber;
 public:
 	// Constructor Method
 	DevBot();
