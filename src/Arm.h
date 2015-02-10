@@ -19,6 +19,7 @@ private:
 
 public:
 	Arm( int _aLow, int _aHigh, int _bLow, int _bHigh );
+	Arm( int _moduleNumber, int _aLow, int _aHigh, int _bLow, int _bHigh );
 
 	// Member Methods
 	void Set( int _state );

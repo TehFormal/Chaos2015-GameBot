@@ -8,6 +8,13 @@ Arm::Arm( int _aLow, int _aHigh, int _bLow, int _bHigh ):
 	bHigh( _bHigh )
 {}
 
+Arm::Arm( int _moduleNumber, int _aLow, int _aHigh, int _bLow, int _bHigh ):
+	aLow( _moduleNumber, _aLow ),
+	aHigh( _moduleNumber, _aHigh ),
+	bLow( _moduleNumber, _bLow ),
+	bHigh( _moduleNumber, _bHigh )
+{}
+
 // Sets the solenoids controlling the arm
 void Arm::Set( int _state ) {
 	if( _state != state ) {
