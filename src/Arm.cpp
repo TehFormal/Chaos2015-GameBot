@@ -1,18 +1,14 @@
 #include "WPILib.h"
 #include "Arm.h"
 
-Arm::Arm( int _aLow, int _aHigh, int _bLow, int _bHigh ):
-	aLow( _aLow ),
-	aHigh( _aHigh ),
-	bLow( _bLow ),
-	bHigh( _bHigh )
+Arm::Arm( int _aForward, int _aReverse, int _bForward, int _bReverse ):
+	solenoidA( _aForward, _aReverse ),
+	solenoidB( _bForward, _bReverse )
 {}
 
-Arm::Arm( int _moduleNumber, int _aLow, int _aHigh, int _bLow, int _bHigh ):
-	aLow( _moduleNumber, _aLow ),
-	aHigh( _moduleNumber, _aHigh ),
-	bLow( _moduleNumber, _bLow ),
-	bHigh( _moduleNumber, _bHigh )
+Arm::Arm( int _moduleNumber, int _aForward, int _aReverse, int _bForward, int _bReverse ):
+	solenoidA( _moduleNumber, _aForward, _aReverse ),
+	solenoidB( _moduleNumber, _bForward, _bReverse )
 {}
 
 // Sets the solenoids controlling the arm
@@ -22,38 +18,20 @@ void Arm::Set( int _state ) {
 
 		// Move Down
 		case -1:
-			// A Solenoid
-			aHigh.Set( false );
-			aLow.Set( false );
-
-			// B Solenoid
-			bLow.Set( false );
-			bHigh.Set( true );
-
+			solenoidA.Set(DoubleSolenoid::kOff);
+			solenoidB.Set(DoubleSolenoid::kReverse);
 			break;
 
 		// Stop Moving
 		case 0:
-			// A Solenoid
-			aHigh.Set( false );
-			aLow.Set( true );
-
-			// B Solenoid
-			bHigh.Set( false );
-			bLow.Set( true );
-
+			solenoidA.Set(DoubleSolenoid::kForward);
+			solenoidB.Set(DoubleSolenoid::kReverse);
 			break;
 
 		// Move Up
 		case 1:
-			// A Solenoid
-			aHigh.Set( false );
-			aLow.Set( true );
-
-			// B Solenoid
-			bLow.Set( false );
-			bHigh.Set( true );
-
+			solenoidA.Set(DoubleSolenoid::kForward);
+			solenoidB.Set(DoubleSolenoid::kForward);
 			break;
 
 		}
