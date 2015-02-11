@@ -1,6 +1,21 @@
 #include <cstdint>
 #include "WPILib.h"
 #include "DevBot.h"
+#include "Arm.h"
+
+/*
+leftArm
+	aForward	6
+	aReverse	1
+	bForward	7
+	bReverse	0
+
+rightArm
+	aForward	5
+	aReverse	2
+	bForward	4
+	bReverse	3
+*/
 
 DevBot::DevBot():
 	robotDrive(frontLeft, rearLeft, frontRight, rearRight),	// Must be initialized in the proper order
@@ -9,7 +24,9 @@ DevBot::DevBot():
 	gyro( 0 ),
 	compressor(),
 	forkliftMotor(5),
-	grabber( 1, 0, 7 ) // Channels 0 and 7 on PCM id 1
+	grabber( 1, 0, 7 ), // Channels 0 and 7 on PCM id 1
+	rightArm( 1, 5, 2, 4, 3 ),
+	leftArm( 1, 6, 1, 7, 0 )
 {
 	robotDrive.SetExpiration(0.1);
 	robotDrive.SetInvertedMotor(RobotDrive::kFrontLeftMotor, true);

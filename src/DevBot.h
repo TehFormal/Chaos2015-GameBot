@@ -3,6 +3,7 @@
 
 #include <cstdint>
 #include "WPILib.h"
+#include "Arm.h"
 
 // Wheel Motor IDs
 #define	rearRight	0
@@ -20,8 +21,9 @@ private:
 	Gyro gyro;
 	Compressor compressor;
 	CANTalon forkliftMotor;
-
 	DoubleSolenoid grabber;
+	Arm rightArm;
+	Arm leftArm;
 public:
 	// Constructor Method
 	DevBot();
