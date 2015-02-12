@@ -2,6 +2,14 @@
 #include "WPILib.h"
 #include "DevBot.h"
 
+void AutonomousInit() {
+	// Initialize Autonomous
+}
+
+void AutonomousPeriodic() {
+	// Autonomous Loop
+}
+
 void DevBot::Forward( float Speed, float Time ) {
 	// Reset the gyro to 0 degrees
 	gyro.Reset();
