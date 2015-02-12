@@ -25,8 +25,8 @@ DevBot::DevBot():
 	compressor(),
 	forkliftMotor(5),
 	grabber( 1, 0, 7 ), // Channels 0 and 7 on PCM id 1
-	rightArm( 1, 5, 2, 4, 3 ),
-	leftArm( 1, 6, 1, 7, 0 )
+	rightArm( 2, 5, 3, 4 ),
+	leftArm( 1, 6, 0, 7 )
 {
 	robotDrive.SetExpiration(0.1);
 	robotDrive.SetInvertedMotor(RobotDrive::kFrontLeftMotor, true);
