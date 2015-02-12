@@ -24,8 +24,8 @@ void Arm::Set( int _state ) {
 
 		// Stop Moving
 		case 0:
-			solenoidA.Set(DoubleSolenoid::kForward);
-			solenoidB.Set(DoubleSolenoid::kReverse);
+			solenoidA.Set(DoubleSolenoid::kReverse);
+			solenoidB.Set(DoubleSolenoid::kForward);
 			break;
 
 		// Move Up
