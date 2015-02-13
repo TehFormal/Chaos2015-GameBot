@@ -1,4 +1,5 @@
 #include <cstdint>
+#include <cmath>
 #include "WPILib.h"
 #include "DevBot.h"
 
@@ -9,6 +10,32 @@ void DevBot::AutonomousInit() {
 
 void DevBot::AutonomousPeriodic() {
 	Wait( 0.005 );
+}
+
+void DevBot::Turn( float absSpeed, float targetAngle ) {
+	float offset;
+	float absOffset;
+	float speed;
+
+	// Reset the gyro to 0 degrees
+	gyro.Reset();
+	
+	do {
+		// Find the offsets for the rest of the math
+		offset = gyro.GetAngle() - targetAngle;
+		absOffset = std::abs( offset );
+		
+		// Calculate output speed
+		if( offset > 0 )
+			speed = -1*absOffset;
+
+		// Turn
+		robotDrive.MecanumDrive_Cartesian( 0, 0, speed );
+
+	} while( absOffset > 1 ); // Repeat until target is reached.
+
+	// Leave everything as we found it
+	robotDrive.MecanumDrive_Cartesian( 0, 0, 0 );
 }
 
 void DevBot::Backward( float Speed, float Time ) {
