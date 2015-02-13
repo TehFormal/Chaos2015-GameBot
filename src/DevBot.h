@@ -3,6 +3,7 @@
 
 #include <cstdint>
 #include "WPILib.h"
+#include "LimitedForklift.h"
 #include "Arm.h"
 
 // Wheel Motor IDs
@@ -20,7 +21,7 @@ private:
 	Joystick copilot;
 	Gyro gyro;
 	Compressor compressor;
-	CANTalon forkliftMotor;
+	LimitedForklift forklift;
 	DoubleSolenoid grabber;
 	Arm rightArm;
 	Arm leftArm;

@@ -1,6 +1,7 @@
 #include <cstdint>
 #include "WPILib.h"
 #include "DevBot.h"
+#include "LimitedForklift.h"
 #include "Arm.h"
 
 /*
@@ -23,7 +24,7 @@ DevBot::DevBot():
 	copilot(1),
 	gyro( 0 ),
 	compressor(),
-	forkliftMotor(5),
+	forklift( 5, 0, 1 ),
 	grabber( 1, 0, 7 ), // Channels 0 and 7 on PCM id 1
 	rightArm( 2, 5, 3, 4 ),
 	leftArm( 1, 6, 0, 7 )
