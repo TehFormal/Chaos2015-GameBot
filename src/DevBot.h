@@ -38,6 +38,7 @@ public:
 	
 	// Various Helper Functions
 	void Forward( float Speed, float Time );
+	void Backward( float Speed, float Time );
 };
 
 #endif /* SRC_DEVBOT_H_ */
