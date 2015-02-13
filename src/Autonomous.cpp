@@ -2,12 +2,12 @@
 #include "WPILib.h"
 #include "DevBot.h"
 
-void AutonomousInit() {
-	// Initialize Autonomous
+void DevBot::AutonomousInit() {
+	robotDrive.setSafetyEnabled( false );
 }
 
-void AutonomousPeriodic() {
-	// Autonomous Loop
+void DevBot::AutonomousPeriodic() {
+	Wait( 0.005 );
 }
 
 void DevBot::Forward( float Speed, float Time ) {

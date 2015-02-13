@@ -31,8 +31,8 @@ public:
 
 	// Various Iterators
 	//void RobotInit();
-	//void AutonomousInit();
-	//void AutonomousPeriodic();
+	void AutonomousInit();
+	void AutonomousPeriodic();
 	void TeleopInit();
 	void TeleopPeriodic();
 	
