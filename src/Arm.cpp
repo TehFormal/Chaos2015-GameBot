@@ -4,12 +4,16 @@
 Arm::Arm( int _aForward, int _aReverse, int _bForward, int _bReverse ):
 	solenoidA( _aForward, _aReverse ),
 	solenoidB( _bForward, _bReverse )
-{}
+{
+	state = -1;
+}
 
 Arm::Arm( int _moduleNumber, int _aForward, int _aReverse, int _bForward, int _bReverse ):
 	solenoidA( _moduleNumber, _aForward, _aReverse ),
 	solenoidB( _moduleNumber, _bForward, _bReverse )
-{}
+{
+	state = -1;
+}
 
 // Sets the solenoids controlling the arm
 void Arm::Set( int _state ) {
