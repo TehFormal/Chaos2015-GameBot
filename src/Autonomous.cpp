@@ -3,7 +3,7 @@
 #include "DevBot.h"
 
 void DevBot::AutonomousInit() {
-	robotDrive.setSafetyEnabled( false );
+	robotDrive.SetSafetyEnabled( false );
 	Backward( 0.25, 2.5 );
 }
 
