@@ -27,11 +27,15 @@ void DevBot::Turn( float absSpeed, float targetAngle ) {
 		
 		// Calculate output speed
 		if( offset > 0 )
-			speed = -1*absOffset;
+			speed = absSpeed;
+		else
+			speed = -1*absSpeed;
 
 		// Turn
 		robotDrive.MecanumDrive_Cartesian( 0, 0, speed );
 
+		// Keep CPU from catching fire and network from exploding in a fireball of packets.
+		Wait( 0.005 );
 	} while( absOffset > 1 ); // Repeat until target is reached.
 
 	// Leave everything as we found it
