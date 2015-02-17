@@ -6,6 +6,14 @@
 void DevBot::AutonomousInit() {
 	robotDrive.SetSafetyEnabled( false );
 	Backward( 0.25, 2.5 );
+
+	rightArm.Set( 1 );
+	leftArm.Set( 1 );
+
+	Wait( 0.25 );
+
+	rightArm.Set( 0 );
+	leftArm.Set( 0 );
 }
 
 void DevBot::AutonomousPeriodic() {
