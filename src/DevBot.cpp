@@ -19,6 +19,12 @@ rightArm
 */
 
 DevBot::DevBot():
+	// Motor Controllers
+	frontRight( 1 ),
+	frontLeft( 2 ),
+	rearLeft( 3 ),
+	rearRight( 4 ),
+
 	robotDrive(frontLeft, rearLeft, frontRight, rearRight),	// Must be initialized in the proper order
 	driver(0),
 	copilot(1),

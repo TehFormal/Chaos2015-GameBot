@@ -15,7 +15,13 @@
 // Main Robot Class
 class DevBot: public IterativeRobot
 {
-private:	
+private:
+	// Actual Motor Controllers
+	CANTalon frontRight;
+	CANTalon frontLeft;
+	CANTalon rearLeft;
+	CANTalon rearRight;
+
 	RobotDrive robotDrive;	// robot drive system
 	Joystick driver;
 	Joystick copilot;
