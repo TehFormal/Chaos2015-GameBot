@@ -19,13 +19,19 @@ rightArm
 */
 
 DevBot::DevBot():
-	// Motor Controllers
+	// Actual Motor Controllers
 	frontRight( 1 ),
 	frontLeft( 2 ),
 	rearLeft( 3 ),
 	rearRight( 4 ),
 
-	robotDrive(frontLeft, rearLeft, frontRight, rearRight),	// Must be initialized in the proper order
+	// Fake Motor Controllers
+	PWMfr(0),
+	PWMfl(1),
+	PWMrl(2),
+	PWMrr(3),
+
+	robotDrive( PWMfl, PWMrl, PWMfr, PWMrr ),	// Must be initialized in the proper order
 	driver(0),
 	copilot(1),
 	gyro( 0 ),

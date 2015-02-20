@@ -22,6 +22,12 @@ private:
 	CANTalon rearLeft;
 	CANTalon rearRight;
 
+	// Fake Motor Controllers
+	TalonSRX PWMfr;
+	TalonSRX PWMfl;
+	TalonSRX PWMrl;
+	TalonSRX PWMrr;
+
 	RobotDrive robotDrive;	// robot drive system
 	Joystick driver;
 	Joystick copilot;
