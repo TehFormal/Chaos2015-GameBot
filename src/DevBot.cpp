@@ -35,6 +35,7 @@ DevBot::DevBot():
 	driver(0),
 	copilot(1),
 	gyro( 0 ),
+	accelerometer(),
 	compressor(),
 	forklift( 5, 0, 1 ),
 	grabber( 1, 0, 7 ), // Channels 0 and 7 on PCM id 1

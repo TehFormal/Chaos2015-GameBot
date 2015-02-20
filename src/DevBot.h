@@ -32,6 +32,7 @@ private:
 	Joystick driver;
 	Joystick copilot;
 	Gyro gyro;
+	BuiltInAccelerometer accelerometer;
 	Compressor compressor;
 	LimitedForklift forklift;
 	DoubleSolenoid grabber;
