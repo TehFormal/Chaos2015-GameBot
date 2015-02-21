@@ -3,17 +3,91 @@
 #include "WPILib.h"
 #include "DevBot.h"
 
-void DevBot::AutonomousInit() {
+void DevBot::AutonomousInit() {	
+	Timer timer;
+
+	///////////////////////////////////////////////////////////////////////
+
+	rightArm.Set( -1 );
+	leftArm.Set( -1 );
+
+	///////////////////////////////////////////////////////////////////////
+
 	robotDrive.SetSafetyEnabled( false );
-	Backward( 0.25, 2.5 );
+
+	// Reset the gyro to 0 degrees
+	gyro.Reset();
+
+	// Initialize Timer
+	timer.Reset();
+	timer.Start();
+
+	// Move straight, changing angle to adjust for drift
+	while ( accelerometer.GetX() > -0.75 || timer.Get() < 2 ) {
+		robotDrive.MecanumDrive_Cartesian( 0, -0.25, gyro.GetAngle() * 0.1 );
+
+		// Set real motor values based off of the fake ones
+		frontRight.Set(PWMfr.Get());
+		frontLeft.Set(PWMfl.Get());
+		rearLeft.Set(PWMrl.Get());
+		rearRight.Set(PWMrr.Get());
+
+		Wait( 0.005 );
+	}
+
+	// Leave everything as we found it
+	robotDrive.MecanumDrive_Cartesian( 0, 0, 0 );
+
+	// Set real motor values based off of the fake ones
+	frontRight.Set(PWMfr.Get());
+	frontLeft.Set(PWMfl.Get());
+	rearLeft.Set(PWMrl.Get());
+	rearRight.Set(PWMrr.Get());
+
+	timer.Stop();
+
+	///////////////////////////////////////////////////////////////////////
 
 	rightArm.Set( 1 );
 	leftArm.Set( 1 );
 
-	Wait( 0.25 );
+	Wait( 0.5 );
 
 	rightArm.Set( 0 );
 	leftArm.Set( 0 );
+
+	///////////////////////////////////////////////////////////////////////
+
+	// Reset the gyro to 0 degrees
+	gyro.Reset();
+
+	// Initialize Timer
+	timer.Reset();
+	timer.Start();
+
+	// Move straight, changing angle to adjust for drift
+	while ( accelerometer.GetX() < 0.75 || timer.Get() < 2 ) {
+		robotDrive.MecanumDrive_Cartesian( 0, 0.25, -gyro.GetAngle() * 0.1 );
+
+		// Set real motor values based off of the fake ones
+		frontRight.Set(PWMfr.Get());
+		frontLeft.Set(PWMfl.Get());
+		rearLeft.Set(PWMrl.Get());
+		rearRight.Set(PWMrr.Get());
+
+		Wait( 0.005 );
+	}
+
+	// Leave everything as we found it
+	robotDrive.MecanumDrive_Cartesian( 0, 0, 0 );
+
+	// Set real motor values based off of the fake ones
+	frontRight.Set(PWMfr.Get());
+	frontLeft.Set(PWMfl.Get());
+	rearLeft.Set(PWMrl.Get());
+	rearRight.Set(PWMrr.Get());
+
+	timer.Stop();
 }
 
 void DevBot::AutonomousPeriodic() {
