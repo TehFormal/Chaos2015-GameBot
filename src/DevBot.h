@@ -6,12 +6,6 @@
 #include "LimitedForklift.h"
 #include "Arm.h"
 
-// Wheel Motor IDs
-#define	rearRight	0
-#define	frontRight	1
-#define	frontLeft	2
-#define	rearLeft	3
-
 // Main Robot Class
 class DevBot: public IterativeRobot
 {
