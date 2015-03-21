@@ -19,20 +19,20 @@ void Arm::Set( int state ) {
 
 	// Move Down
 	case -1:
-		solenoidA.Set(DoubleSolenoid::kOff);
-		solenoidB.Set(DoubleSolenoid::kReverse);
+		solenoidA.Set( DoubleSolenoid::kOff );
+		solenoidB.Set( DoubleSolenoid::kReverse );
 		break;
 
 	// Stop Moving
 	case 0:
-		solenoidA.Set(DoubleSolenoid::kReverse);
-		solenoidB.Set(DoubleSolenoid::kForward);
+		solenoidA.Set( DoubleSolenoid::kReverse );
+		solenoidB.Set( DoubleSolenoid::kForward );
 		break;
 
 	// Move Up
 	case 1:
-		solenoidA.Set(DoubleSolenoid::kForward);
-		solenoidB.Set(DoubleSolenoid::kForward);
+		solenoidA.Set( DoubleSolenoid::kForward );
+		solenoidB.Set( DoubleSolenoid::kForward );
 		break;
 
 	}

@@ -1,3 +1,17 @@
+/*
+leftArm
+	aForward	6
+	aReverse	1
+	bForward	7
+	bReverse	0
+
+rightArm
+	aForward	5
+	aReverse	2
+	bForward	4
+	bReverse	3
+*/
+
 #ifndef SRC_DEVBOT_H_
 #define SRC_DEVBOT_H_
 
@@ -9,7 +23,7 @@
 // Main Robot Class
 class DevBot: public IterativeRobot
 {
-private:
+  private:
 	// Actual Motor Controllers
 	CANTalon frontRight;
 	CANTalon frontLeft;
@@ -22,22 +36,26 @@ private:
 	TalonSRX PWMrl;
 	TalonSRX PWMrr;
 
-	RobotDrive robotDrive;	// robot drive system
+	// Controllers
 	Joystick driver;
 	Joystick copilot;
-	Gyro gyro;
-	BuiltInAccelerometer accelerometer;
-	Compressor compressor;
+	
+	// Pseudo-Subsystems
 	LimitedForklift forklift;
 	DoubleSolenoid grabber;
 	Arm rightArm;
 	Arm leftArm;
-public:
+	
+	// Assorted In's and Out's
+	Gyro gyro;
+	BuiltInAccelerometer accelerometer;
+	Compressor compressor;
+	RobotDrive robotDrive;
+  public:
 	// Constructor Method
 	DevBot();
 
 	// Various Iterators
-	//void RobotInit();
 	void AutonomousInit();
 	void AutonomousPeriodic();
 	void TeleopInit();
