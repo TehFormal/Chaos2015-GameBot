@@ -4,36 +4,42 @@
 #include "LimitedForklift.h"
 #include "Arm.h"
 
-/*
-leftArm
-	aForward	6
-	aReverse	1
-	bForward	7
-	bReverse	0
-
-rightArm
-	aForward	5
-	aReverse	2
-	bForward	4
-	bReverse	3
-*/
-
 DevBot::DevBot():
-	robotDrive(frontLeft, rearLeft, frontRight, rearRight),	// Must be initialized in the proper order
-	driver(0),
-	copilot(1),
-	gyro( 0 ),
-	compressor(),
-	forklift( 5, 0, 1 ),
-	grabber( 1, 0, 7 ), // Channels 0 and 7 on PCM id 1
-	rightArm( 2, 5, 3, 4 ),
-	leftArm( 1, 6, 0, 7 )
-{
-	robotDrive.SetExpiration(0.1);
-	robotDrive.SetInvertedMotor(RobotDrive::kFrontLeftMotor, true);
-	robotDrive.SetInvertedMotor(RobotDrive::kRearLeftMotor, true);
+	// Actual Motor Controllers
+	frontRight( 1 ),
+	frontLeft( 2 ),
+	rearLeft( 3 ),
+	rearRight( 4 ),
 
-	compressor.Start(); // Starts the compressor
+	// Fake Motor Controllers
+	PWMfr( 0 ),
+	PWMfl( 1 ),
+	PWMrl( 2 ),
+	PWMrr( 3 ),
+	
+	// Controllers
+	driver( 0 ),
+	copilot( 1 ),
+	
+	// Pseudo-Subsystems
+	forklift( 5, 6, 0, 1 ),
+	grabber( 1, 0, 7 ),
+	rightArm( 2, 5, 3, 4 ),
+	leftArm( 1, 6, 0, 7 ),
+	
+	// Assorted In's and Out's
+	gyro( 0 ),
+	accelerometer(),
+	compressor(),
+	robotDrive( PWMfl, PWMrl, PWMfr, PWMrr )
+{
+	// Mecanum Boilerplate
+	robotDrive.SetInvertedMotor( RobotDrive::kFrontLeftMotor, true );
+	robotDrive.SetInvertedMotor( RobotDrive::kRearLeftMotor, true );
+	
+	// Other Assorted Setup
+	robotDrive.SetExpiration( 0.3 );
+	compressor.Start();
 }
 
 START_ROBOT_CLASS(DevBot);
