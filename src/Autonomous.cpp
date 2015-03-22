@@ -2,8 +2,9 @@
 #include <cmath>
 #include "WPILib.h"
 #include "DevBot.h"
+#include <iostream>
 
-void DevBot::AutonomousInit() {
+/*void DevBot::AutonomousInit() {
 	robotDrive.SetSafetyEnabled( false );
 	Backward( 0.25, 2.5 );
 
@@ -14,6 +15,130 @@ void DevBot::AutonomousInit() {
 
 	rightArm.Set( 0 );
 	leftArm.Set( 0 );
+}*/
+
+void DevBot::AutonomousInit() {
+	rightArm.Set( -1 );
+	leftArm.Set( -1 );
+
+	///////////////////////////////////////////////////////////////////////////////
+
+	robotDrive.SetSafetyEnabled( false );
+
+	// Reset the gyro to 0 degrees
+	gyro.Reset();
+
+	// Initialize Timer
+	Timer timer;
+	timer.Reset();
+	timer.Start();
+
+	// Move straight, changing angle to adjust for drift
+	while ( accelerometer.GetX() > -0.75 || timer.Get() < 2 ) {
+		robotDrive.MecanumDrive_Cartesian( 0, -0.20, gyro.GetAngle() * 0.1 );
+
+		// Set real motor values based off of the fake ones
+		frontRight.Set(PWMfr.Get());
+		frontLeft.Set(PWMfl.Get());
+		rearLeft.Set(PWMrl.Get());
+		rearRight.Set(PWMrr.Get());
+
+		Wait( 0.005 );
+	}
+
+	// Leave everything as we found it
+	robotDrive.MecanumDrive_Cartesian( 0, 0, 0 );
+
+	// Set real motor values based off of the fake ones
+	frontRight.Set(PWMfr.Get());
+	frontLeft.Set(PWMfl.Get());
+	rearLeft.Set(PWMrl.Get());
+	rearRight.Set(PWMrr.Get());
+
+	timer.Stop();
+
+	/////////////////////////////////////////////////////////////////////////////////////////
+
+	// Leave everything as we found it
+	robotDrive.MecanumDrive_Cartesian( 0.1, 0, 0 );
+
+	// Set real motor values based off of the fake ones
+	frontRight.Set(PWMfr.Get());
+	frontLeft.Set(PWMfl.Get());
+	rearLeft.Set(PWMrl.Get());
+	rearRight.Set(PWMrr.Get());
+
+	Wait( 0.5 );
+
+	// Leave everything as we found it
+	robotDrive.MecanumDrive_Cartesian( 0, 0, 0 );
+
+	// Set real motor values based off of the fake ones
+	frontRight.Set(PWMfr.Get());
+	frontLeft.Set(PWMfl.Get());
+	rearLeft.Set(PWMrl.Get());
+	rearRight.Set(PWMrr.Get());
+
+	rightArm.Set( 1 );
+	leftArm.Set( 1 );
+
+	Wait( 2 );
+
+	rightArm.Set( 0 );
+	leftArm.Set( 0 );
+
+	/////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+	robotDrive.SetSafetyEnabled( false );
+
+	// Reset the gyro to 0 degrees
+	gyro.Reset();
+
+	// Initialize Timer
+	//Timer timer;
+	timer.Reset();
+	timer.Start();
+
+	/*
+	// Move straight, changing angle to adjust for drift
+	while ( accelerometer.GetX() < 0.75 || timer.Get() < 2 ) {
+		robotDrive.MecanumDrive_Cartesian( 0, 0.25, -gyro.GetAngle() * 0.1 );
+
+		// Set real motor values based off of the fake ones
+		frontRight.Set(PWMfr.Get());
+		frontLeft.Set(PWMfl.Get());
+		rearLeft.Set(PWMrl.Get());
+		rearRight.Set(PWMrr.Get());
+
+		Wait( 0.005 );
+	}
+	*/
+
+	// Leave everything as we found it
+	robotDrive.MecanumDrive_Cartesian( 0.25, 0, 0 );
+
+	// Set real motor values based off of the fake ones
+	frontRight.Set(PWMfr.Get());
+	frontLeft.Set(PWMfl.Get());
+	rearLeft.Set(PWMrl.Get());
+	rearRight.Set(PWMrr.Get());
+
+	Wait(0.5);
+
+	// Leave everything as we found it
+	robotDrive.MecanumDrive_Cartesian( 0, 0, 0 );
+
+	// Set real motor values based off of the fake ones
+	frontRight.Set(PWMfr.Get());
+	frontLeft.Set(PWMfl.Get());
+	rearLeft.Set(PWMrl.Get());
+	rearRight.Set(PWMrr.Get());
+
+	timer.Stop();
+
+	///////////////////////////////////////////////////////////////////////////////
 }
 
 void DevBot::AutonomousPeriodic() {
