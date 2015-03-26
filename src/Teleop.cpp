@@ -16,6 +16,12 @@ void DevBot::TeleopPeriodic() {
 		-0.5*driver.GetRawAxis(4)		// Rotational movement
 	);
 
+	// Set real motor values based off of the fake ones
+	frontRight.Set(PWMfr.Get());
+	frontLeft.Set(PWMfl.Get());
+	rearLeft.Set(PWMrl.Get());
+	rearRight.Set(PWMrr.Get());
+
 	// Forklift
 	forklift.Set( copilot.GetRawAxis(1) );
 
