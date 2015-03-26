@@ -42,4 +42,12 @@ DevBot::DevBot():
 	compressor.Start();
 }
 
+void DevBot::UpdateMotors() {
+	// Set real motor values based off of the fake ones
+	frontRight.Set(PWMfr.Get());
+	frontLeft.Set(PWMfl.Get());
+	rearLeft.Set(PWMrl.Get());
+	rearRight.Set(PWMrr.Get());
+}
+
 START_ROBOT_CLASS(DevBot);

@@ -62,6 +62,7 @@ class DevBot: public IterativeRobot
 	void TeleopPeriodic();
 	
 	// Various Helper Functions
+	void UpdateMotors();
 	void Forward( float Speed, float Time );
 	void Backward( float Speed, float Time );
 	void Turn( float absSpeed, float targetAngle );
